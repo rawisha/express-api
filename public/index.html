@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="../public/assets/css/style.css" />
+    <title>Api User Manager</title>
+  </head>
+  <body>
+    <!--HEADER START-->
+    <header id="header">
+      <nav class="container">
+        <div class="centered">
+          <a href="/" class="nav-text dark">User Manager</a>
+        </div>
+      </nav>
+    </header>
+    <!--HEADER END-->
+
+    <!--||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
+
+    <!--Tables,content and action START-->
+    <section id="mainContent">
+      <div class="container">
+        <div class="navBox flexInfo between">
+          <a href="/public/add-user.html" class="border">
+            <span class="color">New User <i class="fas fa-user"></i></span>
+          </a>
+        </div>
+        <!--FORMS START-->
+        <form action="/" method="POST">
+          <table class="table">
+            <thead class="thead-color">
+              <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Age</th>
+                <th>Email</th>
+                <th>Adress</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>First Name</td>
+                <td>Last Name</td>
+                <td>age</td>
+                <td>email@gmail.com</td>
+                <td>blablagatan 57</td>
+                <td>
+                  <a href="/public/update-user.html" class="btn border update">
+                    <span class="color"><i class="fas fa-pencil-alt"></i></span>
+                  </a>
+                  <a href="#" class="btn border delete">
+                    <span class="color"><i class="fas fa-trash-alt"></i></span>
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </form>
+        <!--FORMS END-->
+      </div>
+    </section>
+
+    <!--Tables,content and action END-->
+  </body>
+</html>

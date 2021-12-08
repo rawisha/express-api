@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./register-style.css" />
+    <title>Register form</title>
+  </head>
+  <body>
+    <div class="container">
+      <form action="/register" id="form" class="form" method="POST">
+        <h2>Register With Us</h2>
+        <div class="form-control">
+          <label for="username">First Name</label>
+          <input type="text" id="fname" placeholder="Enter First Name" />
+          <small>Error message</small>
+        </div>
+        <div class="form-control">
+          <label for="username">Last Name</label>
+          <input type="text" id="lname" placeholder="Enter Last Name" />
+          <small>Error message</small>
+        </div>
+        <div class="form-control">
+          <label for="username">Age</label>
+          <input type="number" id="age" placeholder="Enter age" />
+          <small>Error message</small>
+        </div>
+        <div class="form-control">
+          <label for="email">Email</label>
+          <input type="text" id="email" placeholder="Enter email" />
+          <small>Error message</small>
+        </div>
+        <div class="form-control">
+          <label for="username">Adress</label>
+          <input type="text" id="adress" placeholder="Enter Adress" />
+          <small>Error message</small>
+        </div>
+        <div class="form-control">
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="Enter password" />
+          <small>Error message</small>
+        </div>
+        <div class="form-control">
+          <label for="password2">Confirm Password</label>
+          <input
+            type="password"
+            id="password2"
+            placeholder="Enter password again"
+          />
+          <small>Error message</small>
+        </div>
+          <button type="sumbit" id="sub">Submit</button>
+        </div>
+      </form>
+    </div>
+
+    <script src="./register-script.js"></script>
+  </body>
+</html>
