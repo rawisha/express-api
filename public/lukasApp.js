@@ -44,16 +44,17 @@ const deleteUser = async (id) => {
   const data = await res.json();
   posts = data.posts
 
-  let userIndex = posts[id]._id
-
-  console.log(userIndex)
+  console.log(posts[id]._id)
+  
+  let userIndex = posts[id-1]._id
   
   const ressponce = await fetch(`${rootURL}deletepost/${userIndex}`, {
         method: "delete"
+      
     })
 
     getPosts()
-    
+      
 } 
 
 
