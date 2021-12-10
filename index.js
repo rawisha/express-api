@@ -3,16 +3,16 @@ const app = express();
 const mongoose = require("mongoose");
 const cors = require("cors");
 const router = require("./api/API");
+const path = require("path")
 require("dotenv").config()
 app.use(cors());
 
 app.use(express.json());
 
 app.use("/api", router);
-
-// Vad koppar denna upp till ? 
+app.use(express.static(path.join(__dirname, "public")))
 mongoose.connect(
-  "mongodb+srv://API-gods:adRV8wYWmcuNnaAT@api-gods-bd.jimil.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+  process.env.DB,
   { useNewUrlParser: true, useUnifiedTopology: true, autoIndex: true },
   () => console.log("Connected to db")
 );

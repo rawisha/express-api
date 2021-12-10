@@ -12,7 +12,7 @@ const getPosts = async () => {
     const res = await fetch(`${rootURL}getposts`); 
     const data = await res.json();
     posts = data.posts
-    document.querySelector("#table-content").innerHTML = posts
+    document.querySelector("tbody").innerHTML = posts
     .map((post, index) => 
         // Vet inte hur man gör ett eget id så jag tar de som finns. 
         `
@@ -25,7 +25,7 @@ const getPosts = async () => {
                 <td>${post.email}</td>
                 <td>${post.adress}</td>
                 <td>
-                  <a id="update-user-btn" href="/public/update-user.html" class="btn border update">
+                  <a id="update-user-btn" href="/update-user.html" class="btn border update">
                     <span class="color"><i class="fas fa-pencil-alt"></i></span>
                   </a>
                   <a onclick="deleteUser(id)" id="${index}" href="#" class="btn border delete">

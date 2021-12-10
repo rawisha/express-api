@@ -2,7 +2,7 @@
 
 
 // ------------------ Update user add info -------------------- //
-
+/*
 const updateUserInfo = async () =>
 {
     const res = await fetch("http://localhost:5000/api/getposts/")
@@ -14,3 +14,4 @@ document.getElementById("update-user-btn").addEventListener("click", () =>
     updateUserInfo();
 }
 );
+*/
