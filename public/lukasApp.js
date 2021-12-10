@@ -11,13 +11,12 @@ const getPosts = async () => {
     const data = await res.json();
     posts = data.posts
     document.querySelector("#table-content").innerHTML = posts
-    .map(
-        post => 
+    .map((post, index) => 
         // Vet inte hur man gör ett eget id så jag tar de som finns. 
         `
         <tbody>
               <tr>
-                <td>${post.userId}</td>
+                <td>${index + 1}</td>
                 <td>${post.name}</td>
                 <td>${post.lastname}</td>
                 <td>${post.age}</td>
