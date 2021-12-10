@@ -183,3 +183,88 @@ table {
 }
 
 /*------------- Add user and update user css END-----------------*/
+
+/*---------------------LOAD SCREEN START-------------------------------*/
+
+.load-section{
+  top: 0px;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(3, 3, 3, 0.7);
+  position: fixed;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  }
+  
+  .load-box{
+  position: relative;
+  height: 40vh;
+  width: 40vw;
+  background-color: white;
+  opacity: 0.75;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  }
+  
+  #loading{
+  font-size: 40px;
+  }
+  
+  #dot-one, 
+  #dot-two, 
+  #dot-three{
+      font-size: 30px;
+      animation-duration: 1s;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+      
+  }
+  
+  #dot-one{
+      animation-name: dot-one;
+     
+      }
+      
+      #dot-two{
+      animation-name: dot-two;
+          
+      }
+      
+      #dot-three{
+      animation-name: dot-three;
+          
+      }
+  
+  @keyframes dot-one {
+      30% {
+          font-size: 60px ;
+      }
+      50% {
+          font-size: 30px ;
+      }
+  
+  }
+  @keyframes dot-two {
+      40% {
+          font-size: 60px ;
+      }
+      70% {
+          font-size: 30px ;
+          
+      }
+  }
+  @keyframes dot-three {
+      60% {
+          font-size: 60px ;
+      }
+      80% {
+          font-size: 30px ;
+          
+      }
+  }
+
+/*---------------------LOAD SCREEN END-------------------------------*/

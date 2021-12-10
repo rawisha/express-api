@@ -8,6 +8,7 @@ let posts = [] ;
 /* Jag gör en fetch 
 */
 const getPosts = async () => {
+  openLoadScreen()
     let userId = -1 ;
     const res = await fetch(`${rootURL}getposts`); 
     const data = await res.json();
@@ -28,7 +29,7 @@ const getPosts = async () => {
                   <a id="update-user-btn" href="/update-user.html" class="btn border update">
                     <span class="color"><i class="fas fa-pencil-alt"></i></span>
                   </a>
-                  <a onclick="deleteUser(id)" id="${index}" href="#" class="btn border delete">
+                  <a onclick="deleteUser('${post._id}')" href="#" class="btn border delete">
                     <span class="color"><i class="fas fa-trash-alt"></i></span>
                   </a>
                 </td>
@@ -36,26 +37,36 @@ const getPosts = async () => {
             </tbody>
         `
     ).join("")
+    closeLoadScreen()
 }
 
 
 const deleteUser = async (id) => {
-  const res = await fetch(`${rootURL}getposts`); 
-  const data = await res.json();
-  posts = data.posts
 
-  console.log(posts[id]._id)
-  
-  let userIndex = posts[id-1]._id
-  
-  const ressponce = await fetch(`${rootURL}deletepost/${userIndex}`, {
+  openLoadScreen()
+
+  const ressponce = await fetch(`${rootURL}deletepost/${id}`, {
         method: "delete"
       
     })
 
     getPosts()
+    closeLoadScreen()
       
 } 
+
+
+//------------------------- LOAD SCREEN START --------------------------------//
+
+const openLoadScreen = () => {
+  document.querySelector(".load-section").style.display="flex"
+}
+
+const closeLoadScreen = () => {
+  document.querySelector(".load-section").style.display="none"
+}
+
+//------------------------- LOAD SCREEN END --------------------------------//
 
 
 
