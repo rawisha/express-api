@@ -10,8 +10,9 @@ app.use(express.json());
 
 app.use("/api", router);
 
+// Vad koppar denna upp till ? 
 mongoose.connect(
-  process.env.MONGODB,
+  "mongodb+srv://API-gods:adRV8wYWmcuNnaAT@api-gods-bd.jimil.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
   { useNewUrlParser: true, useUnifiedTopology: true, autoIndex: true },
   () => console.log("Connected to db")
 );
