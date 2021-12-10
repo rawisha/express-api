@@ -5,17 +5,15 @@ let posts = [] ;
 
 
 // get posts
-/* Jag gör en fetch 
+/* Jag gör en fetch på
 */
 const getPosts = async () => {
   openLoadScreen()
-    let userId = -1 ;
     const res = await fetch(`${rootURL}getposts`); 
     const data = await res.json();
     posts = data.posts
     document.querySelector("tbody").innerHTML = posts
-    .map((post, index) => 
-        // Vet inte hur man gör ett eget id så jag tar de som finns. 
+    .map((post, index) =>   
         `
         <tbody>
               <tr>
