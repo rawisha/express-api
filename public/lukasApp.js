@@ -5,6 +5,8 @@ let posts = [] ;
 
 
 // get posts
+/* Jag gör en fetch 
+*/
 const getPosts = async () => {
     let userId = -1 ;
     const res = await fetch(`${rootURL}getposts`); 
@@ -16,7 +18,7 @@ const getPosts = async () => {
         `
         <tbody>
               <tr>
-                <td>${index + 1}</td>
+                <td>${index += 1}</td>
                 <td>${post.name}</td>
                 <td>${post.lastname}</td>
                 <td>${post.age}</td>
@@ -26,7 +28,7 @@ const getPosts = async () => {
                   <a id="update-user-btn" href="/public/update-user.html" class="btn border update">
                     <span class="color"><i class="fas fa-pencil-alt"></i></span>
                   </a>
-                  <a onclick="deleteUser(id)" id="${userId += 1}" href="#" class="btn border delete">
+                  <a onclick="deleteUser(id)" id="${index}" href="#" class="btn border delete">
                     <span class="color"><i class="fas fa-trash-alt"></i></span>
                   </a>
                 </td>
