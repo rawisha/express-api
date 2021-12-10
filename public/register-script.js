@@ -83,6 +83,7 @@ function getFieldName(input) {
 }
 
 // Event Listiners
+
 form.addEventListener("submit", function (e) {
   e.preventDefault();
 
@@ -93,6 +94,7 @@ form.addEventListener("submit", function (e) {
   checkLength(password, 6, 25);
   checkEmail(email);
   checkPassordsMatch(password, password2);
+  
 
   // Register to API
   fetch("http://localhost:5000/api/register", {

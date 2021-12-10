@@ -3,8 +3,10 @@ const rootURL = "http://localhost:5000/api/" ;
 
 let posts = [] ;
 
+
 // get posts
 const getPosts = async () => {
+    let userId = -1 ;
     const res = await fetch(`${rootURL}getposts`); 
     const data = await res.json();
     posts = data.posts
@@ -15,7 +17,7 @@ const getPosts = async () => {
         `
         <tbody>
               <tr>
-                <td>${post._id}</td>
+                <td>${post.userId}</td>
                 <td>${post.name}</td>
                 <td>${post.lastname}</td>
                 <td>${post.age}</td>
@@ -25,7 +27,7 @@ const getPosts = async () => {
                   <a id="update-user-btn" href="/public/update-user.html" class="btn border update">
                     <span class="color"><i class="fas fa-pencil-alt"></i></span>
                   </a>
-                  <a href="#" class="btn border delete">
+                  <a onclick="deleteUser(id)" id="${userId += 1}" href="#" class="btn border delete">
                     <span class="color"><i class="fas fa-trash-alt"></i></span>
                   </a>
                 </td>
@@ -35,6 +37,23 @@ const getPosts = async () => {
     ).join("")
 }
 
+
+const deleteUser = async (id) => {
+  const res = await fetch(`${rootURL}getposts`); 
+  const data = await res.json();
+  posts = data.posts
+
+  let userIndex = posts[id]._id
+
+  console.log(userIndex)
+  
+  const ressponce = await fetch(`${rootURL}deletepost/${userIndex}`, {
+        method: "delete"
+    })
+
+    getPosts()
+    
+} 
 
 
 
