@@ -42,7 +42,7 @@
           <span class="text-light">Use the form below to add a new user</span>
         </div>
         <!--FORMS START-->
-        <form method="POST" id="updateUser">
+        <form id="updateUser">
           <div class="newUser">
             <div class="formGroup">
               <label for="fname" class="dark">First Name</label>
@@ -64,7 +64,7 @@
             </div>
             <div class="formGroup">
               <label for="age" class="dark">Age</label>
-              <input type="text" name="age" value="" placeholder="Enter Age" />
+              <input type="text" id="age" value="" placeholder="Enter Age" />
             </div>
             <div class="formGroup">
               <label for="email" class="dark">Email</label>
@@ -94,7 +94,7 @@
               />
             </div>
             <div class="formGroup">
-              <button onsubmit="addUser()" type="submit" class="btn dark update">Save</button>
+              <button onclick="addUser(); return false"  class="btn dark update">Save</button>
             </div>
           </div>
         </form>
@@ -112,6 +112,6 @@
         <h1 id="dotts"><span id="dot-one">.</span><span id="dot-two">.</span><span id="dot-three">.</span></h1>
       </div>
     </section>
-
+    <script src="./script.js"></script>
   </body>
 </html>
