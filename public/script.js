@@ -7,6 +7,11 @@ const adress = document.getElementById("adress");
 const password = document.getElementById("password");
 const baseurl = "http://localhost:5000/api"
 
+
+// hämtar all data från databasen och ränderar ut den i index.html. 
+// Varje användare får varsin delete och updateringsknapp. 
+// i knapparna följer även användarens id med som vi använder för att uppdatera och ta bort
+
 function getdata() {
   fetch("/api/getposts")
     .then(response => response.json())
@@ -39,8 +44,8 @@ function getdata() {
     });
 }
 
+// 
 function addUser() {
-    // add new user
     fetch("api/adduser", {
       method: "post",
       body: JSON.stringify({
@@ -77,6 +82,7 @@ function addUser() {
 
 
 // DELETE POST WITH ID
+// hämtar id från användaren man vill ta bort, frågar om  man är säker och sedan tar bort. 
 const deletePost = async (id) =>{
   if(confirm("Are you sure you want to delete this user?")){
     const res = await fetch(`/api/deletepost/${id}`,{
@@ -89,6 +95,7 @@ const deletePost = async (id) =>{
   
 }
 
+// funktionen getdata ska ändast köras om man är på index.html. 
 if(window.location.pathname === "/" || "/index.html"){
   getdata()
 }else{
