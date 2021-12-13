@@ -60,6 +60,7 @@ router.post("/register", (req, res) => {
       });
       
     }
+    // Using the sendMail function that has been emported from the email-service js and passing the request body to the function.
     sendMail(req.body)
   });
 });
