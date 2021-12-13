@@ -1,4 +1,4 @@
-// Skapar nödvändiga globala constanter
+// creates nessesary constants
 
 const form = document.getElementById("updateUser");
 const fname = document.getElementById("fname");
@@ -10,16 +10,19 @@ const password = document.getElementById("password");
 const baseurl = "http://localhost:5000/api"
 
 
-// hämtar all data från databasen och ränderar ut den i index.html. 
-// Varje användare får varsin delete och updateringsknapp. 
-// i knapparna följer även användarens id med som vi använder för att uppdatera och ta bort
 
+// Reseves all the data from the database and puts it in index.html
+// every user gets a delete btn and an update btn, these btn's gets an onclick event 
+// with an id of the spesific user. 
 function getdata() {
   fetch("/api/getposts")
     .then(response => response.json())
     .then(data => {
       const infos = data.posts
         .map(
+          // for every user in the databace, this is renderd in to the html. 
+          // the index + 1 is to give an easy overvew of how many users the databace contanes. 
+          // the inf.name, inf.lastname etc is getting the spesific info of every user.
           (inf, index) => `
               <tr>
               <td>${index + 1}</td>
@@ -46,9 +49,8 @@ function getdata() {
     });
 }
 
-// tar värdena från de olika fälten användaren skrivit i och sparar dem i databasen.
-// Om användaren sparas i databasen ändras fältens värden tillbaks till tomt och ett medelande 
-// skickas i alert, annars skickas medelandet att något gick fel i en alert. 
+// gets all the values the user wrote in the fields and uses the method post to save
+// the data in tehe databace. First the data gets converted into json so the databace can acceppt it. 
 function addUser() {
     fetch("api/adduser", {
       method: "post",
@@ -68,6 +70,8 @@ function addUser() {
         return response.json();
       })
       .then(data => {
+        // if the data is sucsessfully saved in the databace and alert triggers, sending the message
+        // that the post was sucsessfull, then makes all the feilds empty. 
         if (data.message.msgError === false) {
           alert("User Succesfully Added");
           fname.value = ""
@@ -77,6 +81,7 @@ function addUser() {
           password.value = ""
           adress.value = ""
         } else {
+          // If the post was not successfull, this alert is sent:
           alert("Something went wrong, Try again...");
         }
       });
@@ -86,12 +91,15 @@ function addUser() {
 
 
 // DELETE POST WITH ID
-// hämtar id från användaren man vill ta bort, frågar om  man är säker och sedan tar bort. 
+// gets the id from the spesific user you want to delete and uses the method delete to delete the 
+// object from the databace. Before deleting an conformation message will open and ask you if
+// you want to delete
 const deletePost = async (id) =>{
   if(confirm("Are you sure you want to delete this user?")){
     const res = await fetch(`/api/deletepost/${id}`,{
       method:"delete",
     })
+    // After the delete was successfull, the function getdata will run again to get an update on all the users.
     getdata()
   }else{
     
@@ -99,7 +107,7 @@ const deletePost = async (id) =>{
   
 }
 
-// funktionen getdata ska ändast köras om man är på index.html. 
+// the function getdata is only supposed to run when on index.html.
 if(window.location.pathname === "/" || "/index.html"){
   getdata()
 }else{
