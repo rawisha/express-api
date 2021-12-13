@@ -82,11 +82,10 @@ function getFieldName(input) {
   return input.id.charAt(0).toUpperCase() + input.id.slice(1);
 }
 
-// Event Listiners
-
-form.addEventListener("submit", function (e) {
-  e.preventDefault();
-
+//Checking all the required fields
+//Registering to api and sending Email response
+//Empty all the fields if everything is OK.
+function register(){
   checkRequired([fname, lname, age, adress, email, password, password2]);
   checkLength(fname, 2, 15);
   checkLength(lname, 2, 15);
@@ -117,8 +116,15 @@ form.addEventListener("submit", function (e) {
     .then(data => {
       if (data.message.msgError === false) {
         alert("Succesfully Registered, Check your Email");
+        fname.value = ""
+        lname.value = ""
+        age.value = ""
+        email.value = ""
+        password.value = ""
+        adress.value = ""
+        password2.value = ""
       } else {
         alert("Something went wrong, Try again...");
       }
     });
-});
+}

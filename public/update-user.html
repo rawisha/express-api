@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="assets/favicon.ico"/>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
@@ -11,7 +12,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
     <title>Api User Manager</title>
   </head>
   <body>
@@ -32,7 +33,7 @@
       <div class="container">
         <div class="navBox flexInfo between">
           <div class="filter">
-            <a href="/index.html"
+            <a href="/"
               ><i class="fas fa-angle-double-left"></i> All Users</a
             >
           </div>
@@ -42,7 +43,7 @@
           <span class="text-light">Use the form below to update a user</span>
         </div>
         <!--FORMS START-->
-        <form method="POST" id="updateUser">
+        <form id="updateUser">
           <div class="newUser">
             <div class="formGroup">
               <label for="fname" class="dark">First Name</label>
@@ -64,7 +65,7 @@
             </div>
             <div class="formGroup">
               <label for="age" class="dark">Age</label>
-              <input type="text" name="age" value="" placeholder="Enter Age" />
+              <input type="text" id="age" value="" placeholder="Enter Age" />
             </div>
             <div class="formGroup">
               <label for="email" class="dark">Email</label>
@@ -95,7 +96,7 @@
             </div>
 
             <div class="formGroup">
-              <button type="submit" class="btn dark update">Save</button>
+              <button onclick="updateUser(); return false" class="btn dark update">Save</button>
             </div>
           </div>
         </form>
@@ -104,5 +105,6 @@
     </section>
 
     <!--Tables,content and action END-->
+    <script src="./update-user.js"></script>
   </body>
 </html>

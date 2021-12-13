@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="assets/favicon.ico"/>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
@@ -11,7 +12,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
     <title>Api User Manager</title>
   </head>
   <body>
@@ -32,7 +33,7 @@
       <div class="container">
         <div class="navBox flexInfo between">
           <div class="filter">
-            <a href="/index.html"
+            <a href="/"
               ><i class="fas fa-angle-double-left"></i> All Users</a
             >
           </div>
@@ -94,7 +95,7 @@
               />
             </div>
             <div class="formGroup">
-              <button onclick="addUser(); return false"  class="btn dark update">Save</button>
+              <button onclick="addUser(); return false" class="btn dark update">Save</button>
             </div>
           </div>
         </form>
@@ -103,15 +104,6 @@
     </section>
 
     <!--Tables,content and action END-->
-
-
-    <!-- LOAD SCREEN -->
-
-    <section class="load-wrapper">
-      <div class="load-box">
-        <h1 id="dotts"><span id="dot-one">.</span><span id="dot-two">.</span><span id="dot-three">.</span></h1>
-      </div>
-    </section>
     <script src="./script.js"></script>
   </body>
 </html>

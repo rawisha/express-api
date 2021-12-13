@@ -2,13 +2,12 @@ const express = require("express");
 const router = express.Router();
 const Post = require("../models/Post");
 const sgMail = require("@sendgrid/mail");
-const API_KEY =
-  process.env.API_KEY;
+require("dotenv").config()
+const API_KEY = process.env.API_KEY;
 sgMail.setApiKey(API_KEY);
 
 // Adds new data to database
-router.post("/newpost", (req, res) => {
-  console.log(req.body);
+router.post("/adduser", (req, res) => {
   const newPost = new Post({
     name: req.body.name,
     lastname: req.body.lastname,
@@ -65,7 +64,7 @@ router.post("/register", (req, res) => {
     from: "rawvsmaw22@gmail.com",
     subject: "Thank you for Registering with us",
     text: "You have Successfully created an account with us",
-    html: "<h1>You have Successfully created an account with us</h1>",
+    html: "<h2>You have Successfully created an account with us</h2>",
   };
   sgMail
     .send(message)
@@ -89,8 +88,24 @@ router.get("/getposts", (req, res) => {
   });
 });
 
+// Gets posts and displays it
+router.get("/getposts/:id", (req, res) => {
+  Post.findById(req.params.id, {}, (err, documents) => {
+    if (err) {
+      res.status(500).json({
+        message: {
+          msgBody: "An error occudred while retriving data",
+          msgError: true,
+        },
+      });
+    } else {
+      res.status(200).json({ posts: documents });
+    }
+  });
+});
+
 // Updates data based on id given by the database
-router.put("/updatepost/:id", (req, res) => {
+router.put("/updateuser/:id", (req, res) => {
   Post.findByIdAndUpdate(
     req.params.id,
     {
@@ -120,6 +135,7 @@ router.put("/updatepost/:id", (req, res) => {
     }
   );
 });
+
 // Deletes data based on id given by the database
 router.delete("/deletepost/:id", (req, res) => {
   Post.findByIdAndDelete(req.params.id, err => {

@@ -5,11 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./register-style.css" />
+    <link rel="icon" type="image/png" href="assets/favicon.ico"/>
     <title>Register form</title>
   </head>
   <body>
     <div class="container">
-      <form action="/register" id="form" class="form" method="POST">
+      <form id="form" class="form">
         <h2>Register With Us</h2>
         <div class="form-control">
           <label for="username">First Name</label>
@@ -50,7 +51,7 @@
           />
           <small>Error message</small>
         </div>
-          <button type="sumbit" id="sub">Submit</button>
+          <button onclick="register(); return false">Submit</button>
         </div>
       </form>
     </div>
