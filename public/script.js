@@ -1,5 +1,3 @@
-
-
 const form = document.getElementById("updateUser");
 const fname = document.getElementById("fname");
 const lname = document.getElementById("lname");
@@ -8,7 +6,6 @@ const age = document.getElementById("age");
 const adress = document.getElementById("adress");
 const password = document.getElementById("password");
 const baseurl = "http://localhost:5000/api"
-id = [];
 
 function getdata() {
   fetch("/api/getposts")
@@ -37,9 +34,7 @@ function getdata() {
         )
         .join("");
       document.querySelector("tbody").innerHTML = infos;
-      for (i = 0; i < data.posts.length; i++) {
-        id.push(data.posts[i]._id);
-      }
+
       document.querySelector("#loader").style.display = "none"
     });
 }
