@@ -1,3 +1,5 @@
+// Skapar nödvändiga globala constanter
+
 const form = document.getElementById("updateUser");
 const fname = document.getElementById("fname");
 const lname = document.getElementById("lname");
@@ -44,7 +46,9 @@ function getdata() {
     });
 }
 
-// 
+// tar värdena från de olika fälten användaren skrivit i och sparar dem i databasen.
+// Om användaren sparas i databasen ändras fältens värden tillbaks till tomt och ett medelande 
+// skickas i alert, annars skickas medelandet att något gick fel i en alert. 
 function addUser() {
     fetch("api/adduser", {
       method: "post",
