@@ -1,10 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const Post = require("../models/Post");
-const sgMail = require("@sendgrid/mail");
+const sendMail = require("../email-service");
 require("dotenv").config()
-const API_KEY = process.env.API_KEY;
-sgMail.setApiKey(API_KEY);
+
 
 // Adds new data to database
 router.post("/adduser", (req, res) => {
@@ -57,19 +56,10 @@ router.post("/register", (req, res) => {
       res.status(201).json({
         message: { msgBody: "Post data succefully saved", msgError: false },
       });
+      
     }
+    sendMail(req.body)
   });
-  const message = {
-    to: req.body.email,
-    from: "rawvsmaw22@gmail.com",
-    subject: "Thank you for Registering with us",
-    text: "You have Successfully created an account with us",
-    html: "<h2>You have Successfully created an account with us</h2>",
-  };
-  sgMail
-    .send(message)
-    .then(res => console.log("Email sent"))
-    .catch(error => console.log(error));
 });
 
 // Gets posts and displays it

@@ -83,8 +83,6 @@ const deletePost = async (id) =>{
       method:"delete",
     })
     getdata()
-    //const data = await res.json();
-    //console.log(data);
   }else{
     
   }
