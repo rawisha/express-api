@@ -1,3 +1,5 @@
+// Reading in the forms and fields.
+
 const form = document.getElementById("form");
 const fname = document.getElementById("fname");
 const lname = document.getElementById("lname");
@@ -95,7 +97,7 @@ function register(){
   checkPassordsMatch(password, password2);
   
 
-  // Register to API
+  // Registers data gotten from the values of each fields and converts the data into json before posting it.
   fetch("http://localhost:5000/api/register", {
     method: "post",
     body: JSON.stringify({
@@ -106,13 +108,16 @@ function register(){
       password: password.value,
       adress: adress.value,
     }),
+    // Settings the correct headers so the database knows we are trying to add json format.
     headers: {
       "Content-Type": "application/json; charset=UTF-8",
     },
   })
+  // turns the response into json
     .then(response => {
       return response.json();
     })
+    //  Checks if the data has been successfuly added and empties the fields, otherwise it will return an alert message.
     .then(data => {
       if (data.message.msgError === false) {
         alert("Succesfully Registered, Check your Email");

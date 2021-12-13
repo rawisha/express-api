@@ -5,7 +5,7 @@ const sendMail = require("../email-service");
 require("dotenv").config()
 
 
-// Adds new data to database
+// Adds new data to database wit the request body
 router.post("/adduser", (req, res) => {
   const newPost = new Post({
     name: req.body.name,
@@ -15,6 +15,7 @@ router.post("/adduser", (req, res) => {
     password: req.body.password,
     adress: req.body.adress,
   });
+  // saves the new data to the database with the content of the request body.
   newPost.save(err => {
     if (err) {
       console.log(err);
@@ -43,6 +44,7 @@ router.post("/register", (req, res) => {
     password: req.body.password,
     adress: req.body.adress,
   });
+  // saves the new data to the database with the content of the request body.
   newPost.save(err => {
     if (err) {
       console.log(err);
@@ -62,7 +64,7 @@ router.post("/register", (req, res) => {
   });
 });
 
-// Gets posts and displays it
+// Grabs all the posts and returns it
 router.get("/getposts", (req, res) => {
   Post.find({}, (err, documents) => {
     if (err) {
@@ -78,7 +80,7 @@ router.get("/getposts", (req, res) => {
   });
 });
 
-// Gets posts and displays it
+// Gets posts with an ID( 1 user ) and returns it
 router.get("/getposts/:id", (req, res) => {
   Post.findById(req.params.id, {}, (err, documents) => {
     if (err) {
@@ -94,7 +96,7 @@ router.get("/getposts/:id", (req, res) => {
   });
 });
 
-// Updates data based on id given by the database
+// Updates the post data based on which user id it has been given.
 router.put("/updateuser/:id", (req, res) => {
   Post.findByIdAndUpdate(
     req.params.id,
@@ -126,7 +128,7 @@ router.put("/updateuser/:id", (req, res) => {
   );
 });
 
-// Deletes data based on id given by the database
+// Deletes data from the database with the help of ID has been given.
 router.delete("/deletepost/:id", (req, res) => {
   Post.findByIdAndDelete(req.params.id, err => {
     if (err) {
@@ -143,4 +145,6 @@ router.delete("/deletepost/:id", (req, res) => {
     }
   });
 });
+
+// exports the router and makes it usuable through out the app.
 module.exports = router;
